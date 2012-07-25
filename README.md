@@ -39,7 +39,7 @@ $brew install cassandra
 Installation
 ------------
 
-1.	Download the latest version: https://github.com/remysaissy/mongodb-macosx-prefspane/raw/master/download/Cassandra.prefPane.zip
+1.	Download the latest version: https://github.com/remysaissy/cassandra-macosx-prefspane/raw/master/download/Cassandra.prefPane.zip
 2.	Unzip Cassandra.prefPane.zip
 3.	Double click on Cassandra.prefPane. This will install it in your System Preferences
 
