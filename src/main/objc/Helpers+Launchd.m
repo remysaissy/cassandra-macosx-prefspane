@@ -17,7 +17,7 @@
     NSArray *arguments = [NSArray arrayWithObjects:@"start", @"com.remysaissy.cassandraprefspane", nil];
     NSTask *task = [NSTask launchedTaskWithLaunchPath:launchctlProcessPath arguments:arguments];
     [task waitUntilExit];
-    BOOL isStarted = [Helpers _isProcessRunningForProcessNamed:@"cassandra"];
+    BOOL isStarted = [Helpers _isProcessRunning];
     if (isStarted == YES)
         [NSString logInfoFromClass:[Helpers class] withSelector:_cmd withFormat:@"Started %@ %@", launchctlProcessPath, arguments];
     else
@@ -31,7 +31,7 @@
     NSArray *arguments = [NSArray arrayWithObjects:@"stop", @"com.remysaissy.cassandraprefspane", nil];
     NSTask *task = [NSTask launchedTaskWithLaunchPath:launchctlProcessPath arguments:arguments];
     [task waitUntilExit];
-    BOOL isStopped = ![Helpers _isProcessRunningForProcessNamed:@"cassandra"];
+    BOOL isStopped = ![Helpers _isProcessRunning];
     if (isStopped == YES)
         [NSString logInfoFromClass:[Helpers class] withSelector:_cmd withFormat:@"Stopped %@ %@", launchctlProcessPath, arguments];
     else
@@ -98,7 +98,7 @@
     if ([[NSFileManager defaultManager] fileExistsAtPath:homeBrewCassandraLaunchdPlist] == YES) {
         [NSString logInfoFromClass:[Helpers class] withSelector:_cmd withFormat:@"Homebrew agent found. Migrating..."];
         NSString *launchctlProcessPath = [Helpers _findBinaryNamed:@"launchctl"];
-        if ([Helpers _isProcessRunningForProcessNamed:@"cassandra"] == YES)
+        if ([Helpers _isProcessRunning] == YES)
             hasAnotherLaunchdProcess = YES;
         NSTask *task = [NSTask launchedTaskWithLaunchPath:launchctlProcessPath arguments:[NSArray arrayWithObjects:@"unload", homeBrewCassandraLaunchdPlist, nil]];   
         [task waitUntilExit];
@@ -126,8 +126,8 @@
     NSString *processWorkingDirectory = [[processPath stringByDeletingLastPathComponent] stringByDeletingLastPathComponent];
     if ([processWorkingDirectory isEqualToString:@"/usr"] == YES)
         processWorkingDirectory = @"/";
-    processWorkingDirectory = [[[processWorkingDirectory stringByAppendingPathExtension:@"var"] stringByAppendingPathExtension:@"lib"] 
-                              stringByAppendingPathExtension:@"cassandra"];
+    processWorkingDirectory = [[[processWorkingDirectory stringByAppendingPathComponent:@"var"] stringByAppendingPathComponent:@"lib"] 
+                              stringByAppendingPathComponent:@"cassandra"];
     NSError *error = nil;
     [[NSFileManager defaultManager] createDirectoryAtPath:processWorkingDirectory withIntermediateDirectories:YES attributes:nil error:&error];
     [launchAgentContent setObject:processWorkingDirectory forKey:@"WorkingDirectory"];

@@ -35,7 +35,7 @@
 
 + (BOOL)isProcessRunning
 {
-    return [Helpers _isProcessRunningForProcessNamed:@"cassandra"];
+    return [Helpers _isProcessRunning];
 }
 
 #pragma mark - Launch agent methods.

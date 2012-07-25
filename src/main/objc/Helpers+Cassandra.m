@@ -11,7 +11,7 @@
 
 @implementation Helpers (cassandra)
 
-+ (BOOL)_startcassandraProcess
++ (BOOL)_startCassandraProcess
 {    
     NSString *processPath = [Helpers _findBinaryNamed:@"cassandra"];
     if (processPath == nil)
@@ -27,17 +27,15 @@
     return isStarted;
 }
 
-+ (BOOL)_stopcassandraProcess
++ (BOOL)_stopCassandraProcess
 {
     NSArray *pidList = [Helpers _pidListForProcesses];
     for (NSNumber *pid in pidList) {
-        if (kill([pid intValue], SIGINT) == -1) {
-            [NSString logInfoFromClass:[Helpers class] withSelector:_cmd withFormat:@"Process %@ not terminating properly, sending SIGKILL...", pid];
-            kill([pid intValue], SIGKILL);
-        }
+        kill([pid intValue], SIGKILL);
         [NSString logInfoFromClass:[Helpers class] withSelector:_cmd withFormat:@"Process %@ terminated.", pid];
     }
-    return YES;
+    BOOL isStopped = ![Helpers isProcessRunning];
+    return isStopped;
 }
 
 @end

@@ -29,6 +29,9 @@
 //Configure the UI with the process stopped.
 - (void)_setProcessAsStopped;
 
+//Update the running state of the server.
+- (void)_checkRunningState;
+
 @end
 
 @implementation CassandraPrefsPane
@@ -50,6 +53,7 @@
 {
     self._autoUpdater = [[[AutoUpdater alloc] init] autorelease];
     [self._autoUpdater addObserver:self forKeyPath:@"hasUpdated" options:NSKeyValueObservingOptionNew context:nil];
+    [self performSelector:@selector(_checkRunningState) withObject:nil afterDelay:5];
 }
 
 - (void)didSelect
@@ -120,6 +124,15 @@
     [self.instanceStatusStartedImageView setHidden:YES];
     [self.instanceStatusStoppedImageView setHidden:NO];
     self._isStarted = NO;    
+}
+
+- (void)_checkRunningState
+{
+    if ([Helpers isProcessRunning])
+        [self _setProcessAsStarted];
+    else
+        [self _setProcessAsStopped];
+    [self performSelector:@selector(_checkRunningState) withObject:nil afterDelay:5];
 }
 
 @end
