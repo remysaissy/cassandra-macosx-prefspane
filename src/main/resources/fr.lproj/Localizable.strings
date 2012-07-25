@@ -1,0 +1,17 @@
+/* No comment provided by engineer. */
+"Start Cassandra Server" = "Démarrer Cassandra";
+
+/* No comment provided by engineer. */
+"started" = "démarré";
+
+/* No comment provided by engineer. */
+"Stop Cassandra Server" = "Arrêter Cassandra";
+
+/* No comment provided by engineer. */
+"stopped" = "arrêté";
+
+/* No comment provided by engineer. */
+"The Cassandra Server is currently started. To stop it, use the \"Stop Cassandra Server\" button." = "Le serveur Cassandra est actuellement démarré. Pour l'arrêter, utilisez le bouton \"Arrêter Cassandra\".";
+
+/* No comment provided by engineer. */
+"The Cassandra Server is currently stopped. To start it, use the \"Start Cassandra Server\" button." = "Le serveur Cassandra est actuellement arrêté. Pour le démarrer, utilisez le bouton \"Démarrer Cassandra\".";

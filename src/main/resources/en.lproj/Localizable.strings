@@ -1,0 +1,18 @@
+﻿/* No comment provided by engineer. */
+"Start Cassandra Server" = "Start Cassandra Server";
+
+/* No comment provided by engineer. */
+"started" = "started";
+
+/* No comment provided by engineer. */
+"Stop Cassandra Server" = "Stop Cassandra Server";
+
+/* No comment provided by engineer. */
+"stopped" = "stopped";
+
+/* No comment provided by engineer. */
+"The Cassandra Server is currently started. To stop it, use the \"Stop Cassandra Server\" button." = "The Cassandra Server is currently started. To stop it, use the \"Stop Cassandra Server\" button.";
+
+/* No comment provided by engineer. */
+"The Cassandra Server is currently stopped. To start it, use the \"Start Cassandra Server\" button." = "The Cassandra Server is currently stopped. To start it, use the \"Start Cassandra Server\" button.";
+
