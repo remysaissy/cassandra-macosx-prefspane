@@ -13,16 +13,10 @@
 		AD7142A515BE728000FF90F5 /* AutoUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = AD7142A315BE728000FF90F5 /* AutoUpdater.m */; };
 		AD7142B415BECCA900FF90F5 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD7142B315BECCA900FF90F5 /* Security.framework */; };
 		AD7142BD15BFC7DA00FF90F5 /* CassandraPrefsPane.m in Sources */ = {isa = PBXBuildFile; fileRef = AD7142BE15BFC7DA00FF90F5 /* CassandraPrefsPane.m */; };
-		AD7142D415BFF26700FF90F5 /* logo-cassandra.png in Resources */ = {isa = PBXBuildFile; fileRef = AD7142D315BFF26600FF90F5 /* logo-cassandra.png */; };
-		AD7142D815BFF75900FF90F5 /* cassandra.tiff in Resources */ = {isa = PBXBuildFile; fileRef = AD7142D715BFF75900FF90F5 /* cassandra.tiff */; };
-		AD7142FD15C0047600FF90F5 /* CassandraPrefsPane.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD7142F915C0047600FF90F5 /* CassandraPrefsPane.xib */; };
-		AD7142FE15C0047600FF90F5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AD7142FB15C0047600FF90F5 /* Localizable.strings */; };
 		AD822B2A15B9951F00FB0B55 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD822B2915B9951F00FB0B55 /* Cocoa.framework */; };
 		AD822B2C15B9951F00FB0B55 /* PreferencePanes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD822B2B15B9951F00FB0B55 /* PreferencePanes.framework */; };
 		AD822B5C15B9ADD300FB0B55 /* Cassandra-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AD822B4F15B9ADD300FB0B55 /* Cassandra-Prefix.pch */; };
 		AD822B5D15B9ADD300FB0B55 /* CassandraPrefsPane.h in Headers */ = {isa = PBXBuildFile; fileRef = AD822B5015B9ADD300FB0B55 /* CassandraPrefsPane.h */; };
-		AD822B6115B9ADD300FB0B55 /* instance_started.png in Resources */ = {isa = PBXBuildFile; fileRef = AD822B5715B9ADD300FB0B55 /* instance_started.png */; };
-		AD822B6215B9ADD300FB0B55 /* instance_stopped.png in Resources */ = {isa = PBXBuildFile; fileRef = AD822B5815B9ADD300FB0B55 /* instance_stopped.png */; };
 		ADAF3CBB15BA9569008C79F0 /* Helpers.h in Headers */ = {isa = PBXBuildFile; fileRef = ADAF3CB915BA9569008C79F0 /* Helpers.h */; };
 		ADAF3CBC15BA9569008C79F0 /* Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = ADAF3CBA15BA9569008C79F0 /* Helpers.m */; };
 		ADAF3CCF15BC0257008C79F0 /* Helpers+Cassandra.h in Headers */ = {isa = PBXBuildFile; fileRef = ADAF3CCD15BC0257008C79F0 /* Helpers+Cassandra.h */; };
@@ -31,6 +25,12 @@
 		ADAF3CD415BC0275008C79F0 /* Helpers+Launchd.m in Sources */ = {isa = PBXBuildFile; fileRef = ADAF3CD215BC0275008C79F0 /* Helpers+Launchd.m */; };
 		ADAF3CD715BC0D1F008C79F0 /* Helpers+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = ADAF3CD515BC0D1F008C79F0 /* Helpers+Private.h */; };
 		ADAF3CD815BC0D1F008C79F0 /* Helpers+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = ADAF3CD615BC0D1F008C79F0 /* Helpers+Private.m */; };
+		ADF95DC915C6DEB800E5A3EE /* instance_started.tiff in Resources */ = {isa = PBXBuildFile; fileRef = ADF95DC715C6DEB800E5A3EE /* instance_started.tiff */; };
+		ADF95DCA15C6DEB800E5A3EE /* instance_stopped.tiff in Resources */ = {isa = PBXBuildFile; fileRef = ADF95DC815C6DEB800E5A3EE /* instance_stopped.tiff */; };
+		ADF95DCF15C6DF0800E5A3EE /* CassandraPrefsPane.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADF95DCB15C6DF0800E5A3EE /* CassandraPrefsPane.xib */; };
+		ADF95DD015C6DF0800E5A3EE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ADF95DCD15C6DF0800E5A3EE /* Localizable.strings */; };
+		ADF95DDC15C7212100E5A3EE /* cassandra-pane.tiff in Resources */ = {isa = PBXBuildFile; fileRef = ADF95DDA15C7212100E5A3EE /* cassandra-pane.tiff */; };
+		ADF95DDE15C72C9300E5A3EE /* logo-cassandra.tiff in Resources */ = {isa = PBXBuildFile; fileRef = ADF95DDD15C72C9300E5A3EE /* logo-cassandra.tiff */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,18 +40,6 @@
 		AD7142A315BE728000FF90F5 /* AutoUpdater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoUpdater.m; sourceTree = "<group>"; };
 		AD7142B315BECCA900FF90F5 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		AD7142BE15BFC7DA00FF90F5 /* CassandraPrefsPane.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CassandraPrefsPane.m; sourceTree = "<group>"; };
-		AD7142D315BFF26600FF90F5 /* logo-cassandra.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-cassandra.png"; sourceTree = "<group>"; };
-		AD7142D715BFF75900FF90F5 /* cassandra.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = cassandra.tiff; sourceTree = "<group>"; };
-		AD7142FA15C0047600FF90F5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CassandraPrefsPane.xib; sourceTree = "<group>"; };
-		AD7142FC15C0047600FF90F5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		AD7142FF15C004A300FF90F5 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = "/Users/remy/Projects/perso/cassandra-macosx-prefspane/src/main/resources/fr.lproj/Localizable.strings"; sourceTree = "<absolute>"; };
-		AD71430015C004A300FF90F5 /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = fr; path = "/Users/remy/Projects/perso/cassandra-macosx-prefspane/src/main/resources/fr.lproj/CassandraPrefsPane.xib"; sourceTree = "<absolute>"; };
-		AD71430115C004F400FF90F5 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "/Users/remy/Projects/perso/cassandra-macosx-prefspane/src/main/resources/zh-Hans.lproj/Localizable.strings"; sourceTree = "<absolute>"; };
-		AD71430215C004F400FF90F5 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "/Users/remy/Projects/perso/cassandra-macosx-prefspane/src/main/resources/zh-Hans.lproj/CassandraPrefsPane.xib"; sourceTree = "<absolute>"; };
-		AD71430315C0052B00FF90F5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = "/Users/remy/Projects/perso/cassandra-macosx-prefspane/src/main/resources/es.lproj/Localizable.strings"; sourceTree = "<absolute>"; };
-		AD71430415C0052B00FF90F5 /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = "/Users/remy/Projects/perso/cassandra-macosx-prefspane/src/main/resources/es.lproj/CassandraPrefsPane.xib"; sourceTree = "<absolute>"; };
-		AD71430515C0054500FF90F5 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = "/Users/remy/Projects/perso/cassandra-macosx-prefspane/src/main/resources/pt.lproj/Localizable.strings"; sourceTree = "<absolute>"; };
-		AD71430615C0054500FF90F5 /* pt */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = pt; path = "/Users/remy/Projects/perso/cassandra-macosx-prefspane/src/main/resources/pt.lproj/CassandraPrefsPane.xib"; sourceTree = "<absolute>"; };
 		AD822B2615B9951F00FB0B55 /* Cassandra.prefPane */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Cassandra.prefPane; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD822B2915B9951F00FB0B55 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		AD822B2B15B9951F00FB0B55 /* PreferencePanes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PreferencePanes.framework; path = System/Library/Frameworks/PreferencePanes.framework; sourceTree = SDKROOT; };
@@ -61,8 +49,6 @@
 		AD822B4D15B9ADD300FB0B55 /* Cassandra-PrefsPane-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Cassandra-PrefsPane-Info.plist"; sourceTree = "<group>"; };
 		AD822B4F15B9ADD300FB0B55 /* Cassandra-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Cassandra-Prefix.pch"; sourceTree = "<group>"; };
 		AD822B5015B9ADD300FB0B55 /* CassandraPrefsPane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CassandraPrefsPane.h; sourceTree = "<group>"; };
-		AD822B5715B9ADD300FB0B55 /* instance_started.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = instance_started.png; sourceTree = "<group>"; };
-		AD822B5815B9ADD300FB0B55 /* instance_stopped.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = instance_stopped.png; sourceTree = "<group>"; };
 		ADAF3CB915BA9569008C79F0 /* Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helpers.h; sourceTree = "<group>"; };
 		ADAF3CBA15BA9569008C79F0 /* Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Helpers.m; sourceTree = "<group>"; };
 		ADAF3CCD15BC0257008C79F0 /* Helpers+Cassandra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Helpers+Cassandra.h"; sourceTree = "<group>"; };
@@ -71,6 +57,20 @@
 		ADAF3CD215BC0275008C79F0 /* Helpers+Launchd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Helpers+Launchd.m"; sourceTree = "<group>"; };
 		ADAF3CD515BC0D1F008C79F0 /* Helpers+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Helpers+Private.h"; sourceTree = "<group>"; };
 		ADAF3CD615BC0D1F008C79F0 /* Helpers+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Helpers+Private.m"; sourceTree = "<group>"; };
+		ADF95DC715C6DEB800E5A3EE /* instance_started.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = instance_started.tiff; sourceTree = "<group>"; };
+		ADF95DC815C6DEB800E5A3EE /* instance_stopped.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = instance_stopped.tiff; sourceTree = "<group>"; };
+		ADF95DCC15C6DF0800E5A3EE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CassandraPrefsPane.xib; sourceTree = "<group>"; };
+		ADF95DCE15C6DF0800E5A3EE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		ADF95DD115C6DF0E00E5A3EE /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = fr; path = fr.lproj/CassandraPrefsPane.xib; sourceTree = "<group>"; };
+		ADF95DD215C6DF0E00E5A3EE /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		ADF95DD315C6DF1200E5A3EE /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/CassandraPrefsPane.xib; sourceTree = "<group>"; };
+		ADF95DD415C6DF1200E5A3EE /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		ADF95DD515C6DF1700E5A3EE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/CassandraPrefsPane.xib"; sourceTree = "<group>"; };
+		ADF95DD615C6DF1700E5A3EE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		ADF95DD715C6DF1A00E5A3EE /* pt */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = pt; path = pt.lproj/CassandraPrefsPane.xib; sourceTree = "<group>"; };
+		ADF95DD815C6DF1A00E5A3EE /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
+		ADF95DDA15C7212100E5A3EE /* cassandra-pane.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = "cassandra-pane.tiff"; sourceTree = "<group>"; };
+		ADF95DDD15C72C9300E5A3EE /* logo-cassandra.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = "logo-cassandra.tiff"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,12 +169,12 @@
 		AD822B5215B9ADD300FB0B55 /* resources */ = {
 			isa = PBXGroup;
 			children = (
-				AD7142F915C0047600FF90F5 /* CassandraPrefsPane.xib */,
-				AD7142FB15C0047600FF90F5 /* Localizable.strings */,
-				AD7142D715BFF75900FF90F5 /* cassandra.tiff */,
-				AD7142D315BFF26600FF90F5 /* logo-cassandra.png */,
-				AD822B5715B9ADD300FB0B55 /* instance_started.png */,
-				AD822B5815B9ADD300FB0B55 /* instance_stopped.png */,
+				ADF95DDD15C72C9300E5A3EE /* logo-cassandra.tiff */,
+				ADF95DDA15C7212100E5A3EE /* cassandra-pane.tiff */,
+				ADF95DCB15C6DF0800E5A3EE /* CassandraPrefsPane.xib */,
+				ADF95DCD15C6DF0800E5A3EE /* Localizable.strings */,
+				ADF95DC715C6DEB800E5A3EE /* instance_started.tiff */,
+				ADF95DC815C6DEB800E5A3EE /* instance_stopped.tiff */,
 			);
 			path = resources;
 			sourceTree = "<group>";
@@ -235,6 +235,7 @@
 				en,
 				fr,
 				"zh-Hans",
+				es,
 			);
 			mainGroup = AD822B1915B9951F00FB0B55;
 			productRefGroup = AD822B2715B9951F00FB0B55 /* Products */;
@@ -251,12 +252,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AD822B6115B9ADD300FB0B55 /* instance_started.png in Resources */,
-				AD822B6215B9ADD300FB0B55 /* instance_stopped.png in Resources */,
-				AD7142D415BFF26700FF90F5 /* logo-cassandra.png in Resources */,
-				AD7142D815BFF75900FF90F5 /* cassandra.tiff in Resources */,
-				AD7142FD15C0047600FF90F5 /* CassandraPrefsPane.xib in Resources */,
-				AD7142FE15C0047600FF90F5 /* Localizable.strings in Resources */,
+				ADF95DC915C6DEB800E5A3EE /* instance_started.tiff in Resources */,
+				ADF95DCA15C6DEB800E5A3EE /* instance_stopped.tiff in Resources */,
+				ADF95DCF15C6DF0800E5A3EE /* CassandraPrefsPane.xib in Resources */,
+				ADF95DD015C6DF0800E5A3EE /* Localizable.strings in Resources */,
+				ADF95DDC15C7212100E5A3EE /* cassandra-pane.tiff in Resources */,
+				ADF95DDE15C72C9300E5A3EE /* logo-cassandra.tiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,26 +281,26 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		AD7142F915C0047600FF90F5 /* CassandraPrefsPane.xib */ = {
+		ADF95DCB15C6DF0800E5A3EE /* CassandraPrefsPane.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				AD7142FA15C0047600FF90F5 /* en */,
-				AD71430015C004A300FF90F5 /* fr */,
-				AD71430215C004F400FF90F5 /* zh-Hans */,
-				AD71430415C0052B00FF90F5 /* es */,
-				AD71430615C0054500FF90F5 /* pt */,
+				ADF95DCC15C6DF0800E5A3EE /* en */,
+				ADF95DD115C6DF0E00E5A3EE /* fr */,
+				ADF95DD315C6DF1200E5A3EE /* es */,
+				ADF95DD515C6DF1700E5A3EE /* zh-Hans */,
+				ADF95DD715C6DF1A00E5A3EE /* pt */,
 			);
 			name = CassandraPrefsPane.xib;
 			sourceTree = "<group>";
 		};
-		AD7142FB15C0047600FF90F5 /* Localizable.strings */ = {
+		ADF95DCD15C6DF0800E5A3EE /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				AD7142FC15C0047600FF90F5 /* en */,
-				AD7142FF15C004A300FF90F5 /* fr */,
-				AD71430115C004F400FF90F5 /* zh-Hans */,
-				AD71430315C0052B00FF90F5 /* es */,
-				AD71430515C0054500FF90F5 /* pt */,
+				ADF95DCE15C6DF0800E5A3EE /* en */,
+				ADF95DD215C6DF0E00E5A3EE /* fr */,
+				ADF95DD415C6DF1200E5A3EE /* es */,
+				ADF95DD615C6DF1700E5A3EE /* zh-Hans */,
+				ADF95DD815C6DF1A00E5A3EE /* pt */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

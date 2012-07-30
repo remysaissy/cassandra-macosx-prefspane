@@ -15,19 +15,21 @@
 	<key>CFBundleName</key>
 	<string>${PRODUCT_NAME}</string>
 	<key>CFBundlePackageType</key>
-	<string>BNDL</string>
+	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>NSHighResolutionCapable</key>
+	<true/>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2012 Octo Technology. All rights reserved.</string>
 	<key>NSMainNibFile</key>
 	<string>CassandraPrefsPane</string>
 	<key>NSPrefPaneIconFile</key>
-	<string>cassandra.tiff</string>
+	<string>cassandra-pane.tiff</string>
 	<key>NSPrefPaneIconLabel</key>
 	<string>Cassandra</string>
 	<key>NSPrincipalClass</key>
