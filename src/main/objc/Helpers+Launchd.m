@@ -3,7 +3,7 @@
 //  Cassandra-PrefsPane
 //
 //  Created by Rémy SAISSY on 22/07/12.
-//  Copyright (c) 2012 Octo Technology. All rights reserved.
+//  Copyleft LGPL 2013.
 //
 
 #import "Helpers+Private.h"
@@ -11,31 +11,31 @@
 
 @implementation Helpers (Launchd)
 
-+ (BOOL)_startProcessWithAutomaticStartup
++ (BOOL)_startProcessWithLaunchd
 {
     NSString *launchctlProcessPath = [Helpers _findBinaryNamed:@"launchctl"];
-    NSArray *arguments = [NSArray arrayWithObjects:@"start", @"com.remysaissy.cassandraprefspane", nil];
+    NSArray *arguments = @[@"start", @"com.remysaissy.cassandraprefspane"];
     NSTask *task = [NSTask launchedTaskWithLaunchPath:launchctlProcessPath arguments:arguments];
     [task waitUntilExit];
-    BOOL isStarted = [Helpers _isProcessRunning];
+    BOOL isStarted = [Helpers isProcessRunning];
     if (isStarted == YES)
-        [NSString logInfoFromClass:[Helpers class] withSelector:_cmd withFormat:@"Started %@ %@", launchctlProcessPath, arguments];
+        INFO(@"Started process %@ %@", launchctlProcessPath, arguments);
     else
-        [NSString logErrorFromClass:[Helpers class] withSelector:_cmd withFormat:@"Cannot start %@ %@", launchctlProcessPath, arguments];
+        ERROR(@"Could not start process %@ %@", launchctlProcessPath, arguments);
     return isStarted;
 }
 
-+ (BOOL)_stopProcessWithAutomaticStartup
++ (BOOL)_stopProcessWithLaunchd
 {
     NSString *launchctlProcessPath = [Helpers _findBinaryNamed:@"launchctl"];
-    NSArray *arguments = [NSArray arrayWithObjects:@"stop", @"com.remysaissy.cassandraprefspane", nil];
+    NSArray *arguments = @[@"stop", @"com.remysaissy.cassandraprefspane"];
     NSTask *task = [NSTask launchedTaskWithLaunchPath:launchctlProcessPath arguments:arguments];
     [task waitUntilExit];
-    BOOL isStopped = ![Helpers _isProcessRunning];
+    BOOL isStopped = ![Helpers isProcessRunning];
     if (isStopped == YES)
-        [NSString logInfoFromClass:[Helpers class] withSelector:_cmd withFormat:@"Stopped %@ %@", launchctlProcessPath, arguments];
+        INFO(@"Stopped process %@ %@", launchctlProcessPath, arguments);
     else
-        [NSString logErrorFromClass:[Helpers class] withSelector:_cmd withFormat:@"Cannot stop %@ %@", launchctlProcessPath, arguments];
+        ERROR(@"Could not stop process %@ %@", launchctlProcessPath, arguments);
     return isStopped;
 }
 
@@ -43,32 +43,17 @@
 {    
     BOOL isInstalled = NO;
     NSString *launchDaemonPath = [Helpers _launchDaemonPath];
-    NSString *disabledLaunchDaemonPath = [launchDaemonPath stringByAppendingPathExtension:@"disabled"];
-    if ([[NSFileManager defaultManager] fileExistsAtPath:disabledLaunchDaemonPath] == YES) {
-        [NSString logInfoFromClass:[Helpers class] withSelector:_cmd withFormat:@"Previous agent plist found at %@. Restoring...", disabledLaunchDaemonPath];
-        NSMutableDictionary *newPlist = [NSMutableDictionary dictionaryWithContentsOfFile:disabledLaunchDaemonPath];
-//        Ensure of the value of two critical keys.
-        [newPlist setObject:@"com.remysaissy.cassandraprefspane" forKey:@"Label"];        
-        [newPlist setObject:[NSNumber numberWithBool:YES] forKey:@"RunAtLoad"];
-        NSError *error = nil;
-        if ([[NSFileManager defaultManager] removeItemAtPath:disabledLaunchDaemonPath error:&error] == NO)
-            [NSString logErrorFromClass:[Helpers class] withSelector:_cmd withFormat:@"Cannot delete previous agent plist in %@.", disabledLaunchDaemonPath];
-        if ([newPlist writeToFile:launchDaemonPath atomically:YES] == NO) {
-            [NSString logErrorFromClass:[Helpers class] withSelector:_cmd withFormat:@"Cannot restore previous agent plist in %@.", launchDaemonPath];
-            [Helpers _createLaunchdPlistForDaemonPath:launchDaemonPath];
-        }
-    } else if ([Helpers _createLaunchdPlistForDaemonPath:launchDaemonPath] == NO)
-        return isInstalled;
-    
-    //    At this point the agent plist file has been created if needed. Now load it.
-    NSString *launchctlProcessPath = [Helpers _findBinaryNamed:@"launchctl"];
-    NSTask *task = [NSTask launchedTaskWithLaunchPath:launchctlProcessPath arguments:[NSArray arrayWithObjects:@"load", launchDaemonPath, nil]];
-    [task waitUntilExit];
-    isInstalled = !task.terminationStatus;
-    if (isInstalled == YES)
-        [NSString logInfoFromClass:[Helpers class] withSelector:_cmd withFormat:@"Agent %@ loaded.", launchDaemonPath];
-    else
-        [NSString logErrorFromClass:[Helpers class] withSelector:_cmd withFormat:@"Cannot load agent %@.", launchDaemonPath];
+    if ([Helpers _createLaunchdPlistForDaemonPath:launchDaemonPath] == YES) {
+        //    At this point the agent plist file has been created if needed. Now load it.
+        NSString *launchctlProcessPath = [Helpers _findBinaryNamed:@"launchctl"];
+        NSTask *task = [NSTask launchedTaskWithLaunchPath:launchctlProcessPath arguments:@[@"load", launchDaemonPath]];
+        [task waitUntilExit];
+        isInstalled = !task.terminationStatus;
+        if (isInstalled == YES)
+            INFO(@"Launchd agent %@ loaded", launchDaemonPath);
+        else
+            ERROR(@"Could not load Launchd agent %@", launchDaemonPath);
+    }
     return isInstalled;
 }
 
@@ -77,73 +62,34 @@
     BOOL isUninstalled = NO;
     NSString *launchDaemonPath = [Helpers _launchDaemonPath];    
     NSString *launchctlProcessPath = [Helpers _findBinaryNamed:@"launchctl"];
-    NSTask *task = [NSTask launchedTaskWithLaunchPath:launchctlProcessPath arguments:[NSArray arrayWithObjects:@"unload", launchDaemonPath, nil]];   
+    NSTask *task = [NSTask launchedTaskWithLaunchPath:launchctlProcessPath arguments:@[@"unload", launchDaemonPath]];
     [task waitUntilExit];
-    if (!task.terminationStatus)
-        [NSString logInfoFromClass:[Helpers class] withSelector:_cmd withFormat:@"Agent %@ unloaded.", launchDaemonPath];
-    else
-        [NSString logErrorFromClass:[Helpers class] withSelector:_cmd withFormat:@"Cannot unload agent %@.", launchDaemonPath];
-    NSString *disabledLaunchDaemonPath = [launchDaemonPath stringByAppendingPathExtension:@"disabled"];
-    NSError *error = nil;
-    isUninstalled = [[NSFileManager defaultManager] moveItemAtPath:launchDaemonPath toPath:disabledLaunchDaemonPath error:&error];
+    if (!task.terminationStatus) {
+        INFO(@"Launchd agent %@ unloaded", launchDaemonPath);
+        NSError *error = nil;
+        isUninstalled = [[NSFileManager defaultManager] removeItemAtPath:launchDaemonPath error:&error];
+        if (error != nil)
+            ERROR(@"Failed to remove agent description file %@ (%@)", launchDaemonPath, error);
+    } else
+        ERROR(@"Could not unload agent %@", launchDaemonPath);
     return isUninstalled;
-}
-
-+ (BOOL)_neutralizeAnotherLaunchdProcess
-{
-    BOOL hasAnotherLaunchdProcess = NO;
-    NSString *homeBrewCassandraLaunchdPlist = [@"~/Library/LaunchAgents/homebrew.mxcl.cassandra.plist" stringByExpandingTildeInPath];
-    NSString *targetCassandraLaunchdPlist = [@"~/Library/LaunchAgents/com.remysaissy.cassandraprefspane.plist.disabled" stringByExpandingTildeInPath];    
-    NSError *error = nil;
-    if ([[NSFileManager defaultManager] fileExistsAtPath:homeBrewCassandraLaunchdPlist] == YES) {
-        [NSString logInfoFromClass:[Helpers class] withSelector:_cmd withFormat:@"Homebrew agent found. Migrating..."];
-        NSString *launchctlProcessPath = [Helpers _findBinaryNamed:@"launchctl"];
-        if ([Helpers _isProcessRunning] == YES)
-            hasAnotherLaunchdProcess = YES;
-        NSTask *task = [NSTask launchedTaskWithLaunchPath:launchctlProcessPath arguments:[NSArray arrayWithObjects:@"unload", homeBrewCassandraLaunchdPlist, nil]];   
-        [task waitUntilExit];
-        if (task.terminationStatus)
-            [NSString logErrorFromClass:[Helpers class] withSelector:_cmd withFormat:@"Cannot unload agent %@.", homeBrewCassandraLaunchdPlist];
-        NSMutableDictionary *homeBrewPlist = [NSMutableDictionary dictionaryWithContentsOfFile:homeBrewCassandraLaunchdPlist];
-        [homeBrewPlist setObject:@"com.remysaissy.cassandraprefspane" forKey:@"Label"];
-        [homeBrewPlist setObject:[NSNumber numberWithBool:YES] forKey:@"RunAtLoad"];
-        [homeBrewPlist writeToFile:targetCassandraLaunchdPlist atomically:YES];
-        if ([[NSFileManager defaultManager] removeItemAtPath:homeBrewCassandraLaunchdPlist error:&error] == NO)
-            [NSString logErrorFromClass:[Helpers class] withSelector:_cmd withFormat:@"Cannot delete agent plist %@.", homeBrewCassandraLaunchdPlist];
-    }
-    return hasAnotherLaunchdProcess;
-}
-
-+ (NSDictionary *)_createLaunchdPlistDictionary
-{
-    NSMutableDictionary *launchAgentContent = [NSMutableDictionary dictionary];
-    [launchAgentContent setObject:@"com.remysaissy.cassandraprefspane" forKey:@"Label"];
-    NSString *processPath = [Helpers _findBinaryNamed:@"cassandra"];
-    NSMutableArray *programArguments = [NSMutableArray arrayWithArray:[Helpers _processArgumentsForProcessPath:processPath forLaunchctl:YES]];
-    [programArguments insertObject:processPath atIndex:0];    
-    [launchAgentContent setObject:programArguments forKey:@"ProgramArguments"];    
-    [launchAgentContent setObject:[NSNumber numberWithBool:YES] forKey:@"RunAtLoad"];
-    NSString *processWorkingDirectory = [[processPath stringByDeletingLastPathComponent] stringByDeletingLastPathComponent];
-    if ([processWorkingDirectory isEqualToString:@"/usr"] == YES)
-        processWorkingDirectory = @"/";
-    processWorkingDirectory = [[[processWorkingDirectory stringByAppendingPathComponent:@"var"] stringByAppendingPathComponent:@"lib"] 
-                              stringByAppendingPathComponent:@"cassandra"];
-    NSError *error = nil;
-    [[NSFileManager defaultManager] createDirectoryAtPath:processWorkingDirectory withIntermediateDirectories:YES attributes:nil error:&error];
-    [launchAgentContent setObject:processWorkingDirectory forKey:@"WorkingDirectory"];
-    return launchAgentContent;
 }
 
 + (BOOL)_createLaunchdPlistForDaemonPath:(NSString *)launchDaemonPath
 {
     BOOL isCreated = NO;
-    [NSString logInfoFromClass:[Helpers class] withSelector:_cmd withFormat:@"No agent plist found at %@. Creating one...", launchDaemonPath];
-    NSDictionary *launchAgentContent = [Helpers _createLaunchdPlistDictionary];
+    NSString *processPath = [Helpers _findBinaryNamed:@"cassandra"];
+    processPath = [processPath stringByResolvingSymlinksInPath];
+    NSString *workingDirectory = [[processPath stringByDeletingLastPathComponent] stringByDeletingLastPathComponent];
+    NSDictionary *launchAgentContent = @{@"Label": @"com.remysaissy.cassandraprefspane",
+                                         @"ProgramArguments": @[processPath, @"-f"],
+                                         @"RunAtLoad": [NSNumber numberWithBool:YES],
+                                         @"WorkingDirectory": workingDirectory};
     isCreated = [launchAgentContent writeToFile:launchDaemonPath atomically:YES];
     if (isCreated)
-        [NSString logInfoFromClass:[Helpers class] withSelector:_cmd withFormat:@"Wrote agent plist in %@.", launchDaemonPath];
+        INFO(@"Agent description file created at %@", launchDaemonPath);
     else
-        [NSString logInfoFromClass:[Helpers class] withSelector:_cmd withFormat:@"Cannot create agent plist in %@.", launchDaemonPath];
+        ERROR(@"Could not create agent description file at %@", launchDaemonPath);
     return isCreated;
 }
 

@@ -3,7 +3,7 @@
 //  Cassandra-PrefsPane
 //
 //  Created by Rémy SAISSY on 22/07/12.
-//  Copyright (c) 2012 Octo Technology. All rights reserved.
+//  Copyleft LGPL 2013.
 //
 
 #import "Helpers+Private.h"
@@ -20,57 +20,22 @@
 
 @implementation Helpers (Private)
 
-+ (BOOL)_isProcessRunning
-{    
-    BOOL    isRunning = NO;
-    NSTask *task = [[[NSTask alloc] init] autorelease];
-    [task setLaunchPath:[Helpers _findBinaryNamed:@"jps"]];
-    [task setArguments:[NSArray array]];
-    NSPipe *outputPipe = [NSPipe pipe];
-    [task setStandardOutput:outputPipe];
-    [task launch];
-    [task waitUntilExit];
-    if (!task.terminationStatus) {
-        NSData *data = [[outputPipe fileHandleForReading] readDataToEndOfFile];
-        NSString *output = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
-        NSArray *processes = [output componentsSeparatedByString:@"\n"];
-        for (NSString *process in processes) {
-            NSRange range = [process rangeOfString:@"CassandraDaemon"];
-            if (range.length) {
-                isRunning = YES;
-                break;
-            }
-        }
-    }
-    return isRunning;
-}
-
 + (NSString *)_launchDaemonPath
 {
     return [@"~/Library/LaunchAgents/com.remysaissy.cassandraprefspane.plist" stringByExpandingTildeInPath];    
 }
 
-+ (NSArray *)_processArgumentsForProcessPath:(NSString *)processPath forLaunchctl:(BOOL)useLaunchctl
-{    
-    NSArray *arguments = nil;
-    if (useLaunchctl == YES)
-        arguments = [NSArray arrayWithObjects:@"-f", nil];
-    else
-        arguments = [NSArray array];
-    return arguments;
-}
-
 + (NSString *)_findBinaryNamed:(NSString *)processName
 {
     NSString *binaryFullPath = nil;
-    NSString *path = [[[[[NSProcessInfo processInfo] environment] objectForKey:@"PATH"] retain] autorelease];
+    NSString *path = [@"~/bin:~/sbin:/opt/local/bin:/opt/local/sbin:/opt/bin:/opt/sbin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/sbin/:/bin" stringByExpandingTildeInPath];
     NSArray *searchPath = [path componentsSeparatedByString:@":"];
     for (NSString *filePath in searchPath) {
         binaryFullPath = [filePath stringByAppendingPathComponent:processName];
         if ([[NSFileManager defaultManager] fileExistsAtPath:binaryFullPath] == YES)
             break;
-    }    
-    return binaryFullPath;    
+    }
+    return binaryFullPath;
 }
 
 + (NSArray *)_pidListForProcesses

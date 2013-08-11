@@ -3,7 +3,7 @@
 //  Cassandra-PrefsPane
 //
 //  Created by Rémy SAISSY on 21/07/12.
-//  Copyright (c) 2012 Octo Technology. All rights reserved.
+//  Copyleft LGPL 2013.
 //
 
 #import <Cocoa/Cocoa.h>
@@ -20,12 +20,12 @@
 + (BOOL)isProcessRunning;
 
 //Check if the launch agent is installed.
-+ (BOOL)isAutomaticStartupInstalled;
++ (BOOL)isLaunchdInstalled;
 
 //Install the launch agent.
-+ (BOOL)installAutomaticStartup;
++ (BOOL)installLaunchd;
 
 //Removes the launch agent.
-+ (BOOL)uninstallAutomaticStartup;
++ (BOOL)uninstallLaunchd;
 
 @end

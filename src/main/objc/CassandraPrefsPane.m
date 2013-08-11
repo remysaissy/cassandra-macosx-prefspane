@@ -3,7 +3,7 @@
 //  Cassandra-PrefsPane
 //
 //  Created by Rémy SAISSY on 20/07/12.
-//  Copyright (c) 2012 Octo Technology. All rights reserved.
+//  Copyleft LGPL 2013.
 //
 
 #import "CassandraPrefsPane.h"
@@ -63,7 +63,7 @@
     else
         [self _setProcessAsStopped];
     
-    [self.instanceAutomaticStartButton setState:[Helpers isAutomaticStartupInstalled]];
+    [self.instanceAutomaticStartButton setState:[Helpers isLaunchdInstalled]];
     [self._autoUpdater checkForUpdate];
 }
 
@@ -90,11 +90,11 @@
 - (IBAction)onAutomaticStartButtonPushed:(id)sender
 {
     if (self.instanceAutomaticStartButton.state) {
-        if ([Helpers installAutomaticStartup] == YES)
-            [self.instanceAutomaticStartButton setState:[Helpers isAutomaticStartupInstalled]];
+        if ([Helpers installLaunchd] == YES)
+            [self.instanceAutomaticStartButton setState:[Helpers isLaunchdInstalled]];
     } else {
-        if ([Helpers uninstallAutomaticStartup] == YES)
-            [self.instanceAutomaticStartButton setState:[Helpers isAutomaticStartupInstalled]];
+        if ([Helpers uninstallLaunchd] == YES)
+            [self.instanceAutomaticStartButton setState:[Helpers isLaunchdInstalled]];
     }
     if ([Helpers isProcessRunning] == YES)
         [self _setProcessAsStarted];

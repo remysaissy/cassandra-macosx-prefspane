@@ -3,7 +3,7 @@
 //  Cassandra-PrefsPane
 //
 //  Created by Rémy SAISSY on 24/07/12.
-//  Copyright (c) 2012 Octo Technology. All rights reserved.
+//  Copyleft LGPL 2013.
 //
 
 #import "AutoUpdater.h"
@@ -92,7 +92,7 @@ enum AutoUpdateSteps
 {
     self._updateStep = AutoUpdateStepIdle;
     self._data = nil;
-    [NSString logErrorFromClass:[self class] withSelector:_cmd withFormat:@"Failed to check for an update: %@.", error];
+    ERROR(@"Failed to check for an update: %@.", error);
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
@@ -121,7 +121,7 @@ enum AutoUpdateSteps
     self._data = nil;
     
     if ([versionNumber floatValue] < [latestVersionNumber floatValue]) {
-        [NSString logInfoFromClass:[self class] withSelector:_cmd withFormat:@"A new version (%@) has been found. Downloading...", latestVersionNumber];
+        INFO(@"A new version (%@) has been found. Downloading...", latestVersionNumber);
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://github.com/remysaissy/cassandra-macosx-prefspane/raw/master/download/Cassandra.prefPane.zip"]];
         self._updateStep = AutoUpdateStepDownloadLatest;
         NSURLConnection *connection = [[[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:YES] autorelease];
@@ -131,7 +131,7 @@ enum AutoUpdateSteps
 
 - (void)_downloadingUpdateDidFinish
 {
-    [NSString logInfoFromClass:[self class] withSelector:_cmd withFormat:@"Installing new version..."];
+    INFO(@"Installing new version...");
     NSString *prefsPaneBinary = [[NSBundle bundleForClass:[self class]] bundlePath];
     NSString *prefsPanePath = [prefsPaneBinary stringByDeletingLastPathComponent];
     NSString *updatedBinaryZipped = [NSTemporaryDirectory() stringByAppendingPathComponent:@"Cassandra.prefPane.zip"];
@@ -172,7 +172,7 @@ enum AutoUpdateSteps
             }
             AuthorizationFree(authorizationRef, 0);
         }
-        [NSString logInfoFromClass:[self class] withSelector:_cmd withFormat:@"New version installed in %@.", prefsPanePath];
+        INFO(@"New version installed in %@.", prefsPanePath);
         self.hasUpdated = YES;
     }
 }

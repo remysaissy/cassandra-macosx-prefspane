@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AD71428515BDF4E700FF90F5 /* NSString+Log.h in Headers */ = {isa = PBXBuildFile; fileRef = AD71428315BDF4E700FF90F5 /* NSString+Log.h */; };
-		AD71428615BDF4E700FF90F5 /* NSString+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = AD71428415BDF4E700FF90F5 /* NSString+Log.m */; };
 		AD7142A415BE728000FF90F5 /* AutoUpdater.h in Headers */ = {isa = PBXBuildFile; fileRef = AD7142A215BE728000FF90F5 /* AutoUpdater.h */; };
 		AD7142A515BE728000FF90F5 /* AutoUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = AD7142A315BE728000FF90F5 /* AutoUpdater.m */; };
 		AD7142B415BECCA900FF90F5 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD7142B315BECCA900FF90F5 /* Security.framework */; };
@@ -19,8 +17,8 @@
 		AD822B5D15B9ADD300FB0B55 /* CassandraPrefsPane.h in Headers */ = {isa = PBXBuildFile; fileRef = AD822B5015B9ADD300FB0B55 /* CassandraPrefsPane.h */; };
 		ADAF3CBB15BA9569008C79F0 /* Helpers.h in Headers */ = {isa = PBXBuildFile; fileRef = ADAF3CB915BA9569008C79F0 /* Helpers.h */; };
 		ADAF3CBC15BA9569008C79F0 /* Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = ADAF3CBA15BA9569008C79F0 /* Helpers.m */; };
-		ADAF3CCF15BC0257008C79F0 /* Helpers+Cassandra.h in Headers */ = {isa = PBXBuildFile; fileRef = ADAF3CCD15BC0257008C79F0 /* Helpers+Cassandra.h */; };
-		ADAF3CD015BC0257008C79F0 /* Helpers+Cassandra.m in Sources */ = {isa = PBXBuildFile; fileRef = ADAF3CCE15BC0257008C79F0 /* Helpers+Cassandra.m */; };
+		ADAF3CCF15BC0257008C79F0 /* Helpers+Process.h in Headers */ = {isa = PBXBuildFile; fileRef = ADAF3CCD15BC0257008C79F0 /* Helpers+Process.h */; };
+		ADAF3CD015BC0257008C79F0 /* Helpers+Process.m in Sources */ = {isa = PBXBuildFile; fileRef = ADAF3CCE15BC0257008C79F0 /* Helpers+Process.m */; };
 		ADAF3CD315BC0275008C79F0 /* Helpers+Launchd.h in Headers */ = {isa = PBXBuildFile; fileRef = ADAF3CD115BC0275008C79F0 /* Helpers+Launchd.h */; };
 		ADAF3CD415BC0275008C79F0 /* Helpers+Launchd.m in Sources */ = {isa = PBXBuildFile; fileRef = ADAF3CD215BC0275008C79F0 /* Helpers+Launchd.m */; };
 		ADAF3CD715BC0D1F008C79F0 /* Helpers+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = ADAF3CD515BC0D1F008C79F0 /* Helpers+Private.h */; };
@@ -34,8 +32,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		AD71428315BDF4E700FF90F5 /* NSString+Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Log.h"; sourceTree = "<group>"; };
-		AD71428415BDF4E700FF90F5 /* NSString+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Log.m"; sourceTree = "<group>"; };
 		AD7142A215BE728000FF90F5 /* AutoUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoUpdater.h; sourceTree = "<group>"; };
 		AD7142A315BE728000FF90F5 /* AutoUpdater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoUpdater.m; sourceTree = "<group>"; };
 		AD7142B315BECCA900FF90F5 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -51,8 +47,8 @@
 		AD822B5015B9ADD300FB0B55 /* CassandraPrefsPane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CassandraPrefsPane.h; sourceTree = "<group>"; };
 		ADAF3CB915BA9569008C79F0 /* Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helpers.h; sourceTree = "<group>"; };
 		ADAF3CBA15BA9569008C79F0 /* Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Helpers.m; sourceTree = "<group>"; };
-		ADAF3CCD15BC0257008C79F0 /* Helpers+Cassandra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Helpers+Cassandra.h"; sourceTree = "<group>"; };
-		ADAF3CCE15BC0257008C79F0 /* Helpers+Cassandra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Helpers+Cassandra.m"; sourceTree = "<group>"; };
+		ADAF3CCD15BC0257008C79F0 /* Helpers+Process.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Helpers+Process.h"; sourceTree = "<group>"; };
+		ADAF3CCE15BC0257008C79F0 /* Helpers+Process.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Helpers+Process.m"; sourceTree = "<group>"; };
 		ADAF3CD115BC0275008C79F0 /* Helpers+Launchd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Helpers+Launchd.h"; sourceTree = "<group>"; };
 		ADAF3CD215BC0275008C79F0 /* Helpers+Launchd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Helpers+Launchd.m"; sourceTree = "<group>"; };
 		ADAF3CD515BC0D1F008C79F0 /* Helpers+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Helpers+Private.h"; sourceTree = "<group>"; };
@@ -152,14 +148,12 @@
 				AD7142BE15BFC7DA00FF90F5 /* CassandraPrefsPane.m */,
 				ADAF3CB915BA9569008C79F0 /* Helpers.h */,
 				ADAF3CBA15BA9569008C79F0 /* Helpers.m */,
-				ADAF3CCD15BC0257008C79F0 /* Helpers+Cassandra.h */,
-				ADAF3CCE15BC0257008C79F0 /* Helpers+Cassandra.m */,
+				ADAF3CCD15BC0257008C79F0 /* Helpers+Process.h */,
+				ADAF3CCE15BC0257008C79F0 /* Helpers+Process.m */,
 				ADAF3CD115BC0275008C79F0 /* Helpers+Launchd.h */,
 				ADAF3CD215BC0275008C79F0 /* Helpers+Launchd.m */,
 				ADAF3CD515BC0D1F008C79F0 /* Helpers+Private.h */,
 				ADAF3CD615BC0D1F008C79F0 /* Helpers+Private.m */,
-				AD71428315BDF4E700FF90F5 /* NSString+Log.h */,
-				AD71428415BDF4E700FF90F5 /* NSString+Log.m */,
 				AD7142A215BE728000FF90F5 /* AutoUpdater.h */,
 				AD7142A315BE728000FF90F5 /* AutoUpdater.m */,
 			);
@@ -189,10 +183,9 @@
 				AD822B5C15B9ADD300FB0B55 /* Cassandra-Prefix.pch in Headers */,
 				AD822B5D15B9ADD300FB0B55 /* CassandraPrefsPane.h in Headers */,
 				ADAF3CBB15BA9569008C79F0 /* Helpers.h in Headers */,
-				ADAF3CCF15BC0257008C79F0 /* Helpers+Cassandra.h in Headers */,
+				ADAF3CCF15BC0257008C79F0 /* Helpers+Process.h in Headers */,
 				ADAF3CD315BC0275008C79F0 /* Helpers+Launchd.h in Headers */,
 				ADAF3CD715BC0D1F008C79F0 /* Helpers+Private.h in Headers */,
-				AD71428515BDF4E700FF90F5 /* NSString+Log.h in Headers */,
 				AD7142A415BE728000FF90F5 /* AutoUpdater.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -224,8 +217,8 @@
 		AD822B1B15B9951F00FB0B55 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0430;
-				ORGANIZATIONNAME = "Octo Technology";
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "";
 			};
 			buildConfigurationList = AD822B1E15B9951F00FB0B55 /* Build configuration list for PBXProject "Cassandra-PrefsPane" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -270,10 +263,9 @@
 			files = (
 				AD7142BD15BFC7DA00FF90F5 /* CassandraPrefsPane.m in Sources */,
 				ADAF3CBC15BA9569008C79F0 /* Helpers.m in Sources */,
-				ADAF3CD015BC0257008C79F0 /* Helpers+Cassandra.m in Sources */,
+				ADAF3CD015BC0257008C79F0 /* Helpers+Process.m in Sources */,
 				ADAF3CD415BC0275008C79F0 /* Helpers+Launchd.m in Sources */,
 				ADAF3CD815BC0D1F008C79F0 /* Helpers+Private.m in Sources */,
-				AD71428615BDF4E700FF90F5 /* NSString+Log.m in Sources */,
 				AD7142A515BE728000FF90F5 /* AutoUpdater.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -314,12 +306,15 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_ENABLE_OBJC_GC = supported;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -344,12 +339,15 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_ENABLE_OBJC_GC = supported;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -365,8 +363,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = "${inherited}";
-				CURRENT_PROJECT_VERSION = 2;
-				GCC_ENABLE_OBJC_GC = supported;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "src/main/objc/Cassandra-Prefix.pch";
 				INFOPLIST_FILE = "src/main/config/Cassandra-PrefsPane-Info.plist";
@@ -381,8 +379,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = "${inherited}";
-				CURRENT_PROJECT_VERSION = 2;
-				GCC_ENABLE_OBJC_GC = supported;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "src/main/objc/Cassandra-Prefix.pch";
 				INFOPLIST_FILE = "src/main/config/Cassandra-PrefsPane-Info.plist";
